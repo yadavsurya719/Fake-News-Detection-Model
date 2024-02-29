@@ -4,7 +4,7 @@ This project implements a Fake News Detection System using machine learning tech
 
 # Author
 Author: Surya Yadav
-Contact: surya.yadav@email.com
+email: yadavsurya719@email.com
 Project Structure
 The project is structured as follows:
 
