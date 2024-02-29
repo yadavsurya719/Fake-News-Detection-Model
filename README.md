@@ -26,17 +26,10 @@ Ensure that these dependencies are installed before running the script.
 Usage
 # Download NLTK Resources:
 
-bash
-Copy code
 nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('wordnet')
-# Run the Script:
 
-bash
-Copy code
-python fake_news_detection.py
-Choose Input Method:
 
 # Option 1: File Upload
 Enter the path of the file containing news articles.
