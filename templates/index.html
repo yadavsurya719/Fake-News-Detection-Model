@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Article Classification</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('your-background-image.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #3498db, #e74c3c, #f39c12, #2ecc71);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 600px;
+            width: 80%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select, input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .manual-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <form action="/classify" method="post" enctype="multipart/form-data" onsubmit="showResult()">
+            <label for="inputChoice">Choose input method:</label>
+            <select id="inputChoice" name="inputChoice">
+                <option value="file">File Upload</option>
+                <option value="manual">Manual Entry</option>
+            </select>
+
+            <div id="fileInput" class="file-input">
+                <label for="file">Upload File:</label>
+                <input type="file" id="file" name="file">
+            </div>
+
+            <div id="manualInput" class="manual-input">
+                <label for="newsArticle">Enter News Article:</label>
+                <textarea id="newsArticle" name="newsArticle"></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+
+            <d<div class="container">
+                <h1>News Prediction Result</h1>
+                <div class="result-bar {% if prediction_result == 0 %}result-true{% else %}result-fake{% endif %}"></div>
+                <p>{{ prediction_result_message }}</p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('inputChoice').addEventListener('change', function() {
+            var fileInput = document.getElementById('fileInput');
+            var manualInput = document.getElementById('manualInput');
+
+            if (this.value === 'file') {
+                fileInput.style.display = 'block';
+                manualInput.style.display = 'none';
+            } else if (this.value === 'manual') {
+                fileInput.style.display = 'none';
+                manualInput.style.display = 'block';
+            }
+        });
+
+        function showResult() {
+            // Placeholder logic to simulate result display
+            var resultBar = document.getElementById('resultBar');
+            var resultText = document.getElementById('resultText');
+            resultText.textContent = 'Fake';  // Replace with your actual result
+
+            resultBar.style.display = 'block';
+            return false;  // Prevent form submission for this example
+        }
+    </script>
+</body>
+</html>
